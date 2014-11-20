@@ -229,7 +229,7 @@ define(["structures/CAPIError", "storages/LocalStorage"], function (CAPIError, L
         userService.deleteSession(
             sessionHref,
             function (error, response) {
-                if ( !error ) {
+                if ( !error || response.status == 404 ) {
                     that._resetStorage();
                 }
                 done(error, response);
