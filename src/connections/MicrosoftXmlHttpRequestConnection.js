@@ -49,6 +49,7 @@ define(["structures/Response", "structures/CAPIError"], function (Response, CAPI
         if (request.httpBasicAuth) {
             XHR.open(request.method, request.url, true, request.login, request.password);
         } else {
+            XHR.withCredentials = true;
             XHR.open(request.method, request.url, true);
         }
 
